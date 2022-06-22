@@ -39,7 +39,7 @@ public class Main {
                  * text=auto
                  """),
             TGS_Pack2.of(".gitignore", """
-                 */target/*
+                 /target/*
                  """)
     );
 }
