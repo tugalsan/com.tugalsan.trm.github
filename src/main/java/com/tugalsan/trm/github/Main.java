@@ -1,5 +1,4 @@
 package com.tugalsan.trm.github;
-//WHEN RUNNING IN NETBEANS, ALL DEPENDENCIES SHOULD HAVE TARGET FOLDER!
 
 import com.tugalsan.api.file.server.*;
 import com.tugalsan.api.file.txt.server.*;
@@ -7,6 +6,7 @@ import com.tugalsan.api.pack.client.*;
 import java.nio.file.*;
 import java.util.*;
 
+//WHEN RUNNING IN NETBEANS, ALL DEPENDENCIES SHOULD HAVE TARGET FOLDER!
 public class Main {
 
     public static void main(String[] args) {
@@ -39,7 +39,7 @@ public class Main {
                  * text=auto
                  """),
             TGS_Pack2.of(".gitignore", """
-                 */target/**
+                 */target/*
                  """)
     );
 }
