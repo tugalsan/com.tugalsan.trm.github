@@ -1,17 +1,45 @@
 package com.tugalsan.trm.github;
-
-import com.tugalsan.api.coronator.client.*;
-
-//WHEN RUNNING ON TEMINAL, ALL DEPENDENCIES WHILL BE READ FROM MAVEN, HENCE NOT PROBLEM
 //WHEN RUNNING IN NETBEANS, ALL DEPENDENCIES SHOULD HAVE TARGET FOLDER!
+
+import com.tugalsan.api.file.server.*;
+import com.tugalsan.api.file.txt.server.*;
+import com.tugalsan.api.pack.client.*;
+import java.nio.file.*;
+import java.util.*;
+
 public class Main {
 
     public static void main(String[] args) {
-        var value = TGS_Coronator.ofStr()
-//                .anoint(val -> "ali gel")
-                .anointAndCoronateIf(val -> val.length() > 5, val -> "veli gel")
-//                .anointIf(val -> val.length() > 0, val -> "celi gel")
-                .coronate();
-        System.out.println(value);
+        forEachChild(Path.of("C:\\me\\codes\\com.tugalsan\\com.tugalsan.bat"));
+        List.of(
+                "C:\\me\\codes\\com.tugalsan\\api",
+                "C:\\me\\codes\\com.tugalsan\\app",
+                "C:\\me\\codes\\com.tugalsan\\lib",
+                "C:\\me\\codes\\com.tugalsan\\lib",
+                "C:\\me\\codes\\com.tugalsan\\res",
+                "C:\\me\\codes\\com.tugalsan\\spi",
+                "C:\\me\\codes\\com.tugalsan\\trm"
+        ).stream().map(str -> Path.of(str)).forEachOrdered(parent -> {
+            TS_DirectoryUtils.subDirectories(parent, false, false).forEach(child -> {
+                forEachChild(child);
+            });
+        });
     }
+
+    static void forEachChild(Path child) {
+        textFiles.forEach(textFile -> {
+            var file = child.resolve(textFile.value0);
+            System.out.println("file: " + file);
+            TS_FileTxtUtils.toFile(textFile.value1, file, false);
+        });
+    }
+    static List<TGS_Pack2<String, String>> textFiles = List.of(
+            TGS_Pack2.of(".gitattributes", """
+                 # Auto detect text files and perform LF normalization
+                 * text=auto
+                 """),
+            TGS_Pack2.of(".gitignore", """
+                 */target/**
+                 """)
+    );
 }

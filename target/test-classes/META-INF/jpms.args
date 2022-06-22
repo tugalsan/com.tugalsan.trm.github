@@ -1,0 +1,4 @@
+--patch-module
+com.tugalsan.tryTwo=_
+--add-reads
+com.tugalsan.tryTwo=ALL-UNNAMED
