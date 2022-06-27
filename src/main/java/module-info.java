@@ -1,4 +1,4 @@
-module com.tugalsan.tryTwo {
+module com.tugalsan.trm.github {
     requires gwt.user;
     requires com.tugalsan.api.compiler;
     requires com.tugalsan.api.executable;
