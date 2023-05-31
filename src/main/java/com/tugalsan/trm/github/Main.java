@@ -2,7 +2,7 @@ package com.tugalsan.trm.github;
 
 import com.tugalsan.api.file.server.*;
 import com.tugalsan.api.file.txt.server.*;
-import com.tugalsan.api.pack.client.*;
+import com.tugalsan.api.tuple.client.*;
 import java.nio.file.*;
 import java.util.*;
 
@@ -33,12 +33,12 @@ public class Main {
             TS_FileTxtUtils.toFile(textFile.value1, file, false);
         });
     }
-    static List<TGS_Pack2<String, String>> textFiles = List.of(
-            TGS_Pack2.of(".gitattributes", """
+    static List<TGS_Tuple2<String, String>> textFiles = List.of(
+            TGS_Tuple2.of(".gitattributes", """
                  # Auto detect text files and perform LF normalization
                  * text=auto
                  """),
-            TGS_Pack2.of(".gitignore", """
+            TGS_Tuple2.of(".gitignore", """
                  /target/*
                  """)
     );
